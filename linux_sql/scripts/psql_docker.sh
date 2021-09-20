@@ -80,5 +80,3 @@ case $action in
 	exit 1
 	;;
 esac
-
-exit 0
