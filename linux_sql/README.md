@@ -6,21 +6,29 @@ The Cluster utilizes bash scripts to initialize a PostgresSQL Docker instance, c
 # Quick Start 
 Start a psql instance using psql_docker.sh
 ```
+./scripts/psql_docker.sh create|destroy|start|stop [db_username] [db_password]
 ```
 Create tables using ddl.sql
 ```
+$ psql -h localhost -U postgres -d host_agent -f sql/ddl.sql
 ```
 Insert hardware specs data into the DB using host_info.sh
 ```
+$ ./scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 ```
 Insert hardware usage data into the DB using host_usage.sh
 ```
+$ ./scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
 Crontab setup
 ```
+$ crontab -e
+        * * * * * bash /home/centos/dev/jarvis_data_eng_DorjeeTenzin/linux_sql/scripts/host_usage.sh localhost 5432 host_agent postgres postgres  &> /tmp/host_usage.log
 ```
 Sample queries for a report 
 ```
+$ psql -h psql_host -U psql_user -d psql_db -f sql/queries.sql
+   
 ```
 
 # Implementation 
@@ -35,21 +43,35 @@ While host_info.sh is run once per node at installation, host_usage.sh triggers 
 *An illustration of the Jarvis Linux Cluster Administration (LCA) architecture*
 ## Scripts
 ### psql_docker.sh
-Starts docker and creates a PostgreSQL container, if none exists. It can be used to create, start and stop the container.
+Starts docker and creates a PostgreSQL container, if none exists. It can be used to create, destroy start and stop the container.
 ```
+Create container:
+./scripts/psql_docker.sh create [db_username] [db_password]
+
+Start container:
+./scripts/psql_docker.sh start [db_username] [db_password]
+
+Stop container:
+./scripts/psql_docker.sh stop [db_username] [db_password]
+
+Remove container:
+./scripts/psql_docker.sh destroy [db_username] [db_password]
 ```
 ### host_info.sh
-Inserts the hardware specification into the database for a node.
+Inserts the hardware specification into the database for a node. Uses ```memeinfo``` and ```lscpu``` to get the data.  
 ```
+bash scripts/host_info.sh psql_host psql_port db_name psql_user psql_password
 ```
 ### host_usage.sh
-Inserts the host usage information into the database for a node.
+Inserts the host usage information into the database for a node. This information is gathered using various system calls such as ```vmstat, top, free --mega, df -m```
 ```
+bash scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password
 ```
 ### crontab
-Schedules a job for host_usage.sh everyone minute
+Schedules a job for host_usage.sh every minute and also stores a log in /tmp/usage.log
 
 ### queries.sql
+The SQL queries file gathers an insightful report of various business questions that may be useful for an LCA to make future decisions based on the usage and hardware data collected. 
 
 ## Database Modeling
 The schema for the tables in the database and their types of values are as follows:
@@ -72,7 +94,6 @@ The schema for the tables in the database and their types of values are as follo
 
 |    | Column         | Data type | Description                                     |
 |----|----------------|-----------|-------------------------------------------------|
-| PK | id             | Serial    | Host id                                         |
 | FK | host_id        | Serial    | Id of host                                      |
 |    | timestamp      | Timestamp | Timestamp when data was entered into host_usage |
 |    | memory_free    | Integer   | Free memory of host in MB                       |
@@ -83,9 +104,11 @@ The schema for the tables in the database and their types of values are as follo
 
 
 # Test
-
-# Deployment 
-
+- All the bash commnds within the scripts have been indivually tested in an isolated CentOS 7 virutal machine 
+- All database entries have been double checked against the actual data found within the database. 
+    i.e ``` $ lscpu``` and ```# SELECT * FROM host_usage``` 
 # Improvements
-
-
+- More complex queries to find even more insightful information based on the database entries 
+- Store a wider range of hardware and usage information 
+- Set up a weekly or monthly contab job for host_info.sh in case hardware changes are made to the system. Modify the script to delete or archive previous entries when new entries are made 
+- Depending on the scale of the database and the qeries, you can set up caching.
