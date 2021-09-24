@@ -1,64 +1,53 @@
 # Dorjee Tenzin . Jarvis Consulting
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit.
+I have a Bachelor of Computing from the University of Guelph where I majored in Computer Science. Throughout my education, I gained a strong fundamental understanding of computer science concepts and paradigms which allow me to be adaptable in the face of new technologies.  I’m great at problem-solving and enjoy writing clean and robust code, more than ever I love learning new concepts, technologies, and methodologies and applying that knowledge and myself. This passion has led me to explore and familiarize myself with many modern application and web development frameworks. Although I only have formal experience as a Backend Engineer, I’m very comfortable with Frontend technologies.
+In terms of mentality and outlook on workplace culture, I like to keep a healthy balance of passion and pragmatism. While I enjoy learning new things and writing beautiful, elegant code, I am mindful of time and business constraints within a larger collaborative environment. I have many experiences working and collaborating with a team to complete a project. During University I was a Teaching Assistance (TA) for The Analysis and Design of Computer Algorithms course in which I had to mentor Second Year students in collaboration with other TA’s and the professor. At my current occupation at Jarvis Consulting, I work in a team to complete projects using Agile and Scrum methodologies.  My strong academic background and my experience working and collaborating within a team will allow me to make meaningful contributions and be a great addition to your team.
 
 ## Skills
 
-**Proficient:** Java, Linux/Bash, RDBMS/SQL, Agile/Scrum, Git
+**Proficient:** C, Java, Python/Django, RDBMS/SQL/Postgres, Agile/Scrum, REST
 
-**Competent:** Donec, fermentum, Donec, fermentum, Donec
+**Competent:** Javascript/React, NodeJS/Express, Docker, AWS/GCP, CSS
 
-**Familiar:** Donec, fermentum, fermentum, fermentum, fermentum
+**Familiar:** GraphQL, Springboot, TypeORM, TypeScript, Heroku
 
 ## Jarvis Projects
 
-Project source code: [https://github.com/jarviscanada/jarvis_data_eng_demo](https://github.com/jarviscanada/jarvis_data_eng_demo)
+Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DorjeeTenzin/](https://github.com/jarviscanada/jarvis_data_eng_DorjeeTenzin/)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/linux_sql)]: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Linux Cluster Resource Monitoring App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DorjeeTenzin//tree/master/linux_sql)]: Developed a MVP tool using bash monitoring agent to record hardware specifications and monitor resources usage for a Linux Cluster Administration team in real-time. The Cluster consists of a switch that connects multiple nodes/servers running CentOS 7 provisioned by Google Cloud Platform (GCP). The Cluster utilizes bash scripts to initialize a PostgresSQL Docker instance, create a schema, retrieve data from the nodes, and populate the database. Relevant data is isolated and filtered using SQL queries to generate meaningful reports. Version control is achieved through git for the local repository and GitHub for the remote repository, in addition, it adheres to Gitflow conventions.
 
-**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/core_java)]:
+**Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DorjeeTenzin//tree/master/core_java)]:
       
-  - Twitter App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - JDBC App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-  - Grep App: Curabitur laoreet tristique leo, eget suscipit nisi. Sed in sodales ex. Maecenas vitae tincidunt dui, et eleifend quam.
-
-**Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/springboot)]: Not Started
-
-**Python Data Analytics** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/python_data_anlytics)]: Not Started
-
-**Hadoop** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/hadoop)]: Not Started
-
-**Spark** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/spark)]: Not Started
-
-**Cloud/DevOps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_demo/tree/master/cloud_devops)]: Not Started
+  - Twitter CRUD App: In Progress...
+  - JDBC App: In Progress...
+  - Grep App: In Progress...
 
 
 ## Highlighted Projects
-**Web app for resturant** [[GitHub](https://github.com/jarviscanada/jarvis_profile_builder)]: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**iCalendar Web App with Parser** [[GitHub](https://github.com/chopgye/ics-calendar-parser)]: Designed a modular system to parse through iCalendar (.ice) files using custom-built API and a LinkedList data structure in C. The backend server is built in NodeJS in conjunction with the parser library using FFI NodeJS module. Meanwhile, the Frontend web client is written in pure JavaScript/HTML.
 
-**Machine Learning**: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Blog Style Reddit Clone** [[GitHub](https://github.com/chopgye/blog-django)]: This app utilizes a MVC framework with Server Side Rendering and is written purely in Django for most apart with an exception of few JQuery and AJAX calls. Implemented functionalities similar to Reddit which allows for users to comment, upvote, downvote, and favorite user posts. It utilizes generic relations and class-based views to ensure scalability and allow for inheritance. In addition, it's completely containerized using Docker and Deployed to Heroku through Container Registry.
+
+**JSON Web Token (JWT) Authentication System** [[GitHub](https://github.com/chopgye/jwt-auth)]: Designed and implemented a fully functional authentication system using JSON Web Tokens. It utilizes React and TypeScript on the frontend and GraphQL to query the backend API on Apollo server with PostgresSQL database. In terms of design choices, the Access Token is stored in-memory instead of the traditional local storage or cookie-based storage to further limit XSS and CRSF attacks, meanwhile, the refresh token is stored as a cookie.
 
 
 ## Professional Experiences
 
-**Software Developer, Jarvis (2020-present)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Software Developer, Jarvis (2021-present)**: Designed and implemented various software projects and server-side applications following Agile and Scrum project development methodology. Gained hands-on industry-standard development experience with Linux, SQL, Java and GCP. Participated in every stage of the project lifecycle management including deployment using enterprise standards such as Docker and GitFlow.
 
-**Tutor, XYZ Company (2019)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Teaching Assistant(TA), University of Guelph (2019)**: Helped foster an open environment for students to ask questions and voice concerns regarding the coursework. Conducted labs, reviews, assessments, and proctor in coordination with the instructor and head TA.
 
 
 ## Education
-**XYZ university (2012-2016)**, Bachelor of Applied Sciences, Electrical and Computer Engineering
-- Scholarship
-- Dean's List (2015, 2016): Ut enim ad minim veniam
-- GPA: 3.8/4.0
-
-**XYZ university (2016-2018)**, Master of Engineering, Electrical and Computer Engineering
+**University of Guelph (2016-2020)**, Bachelor of Computing, School of Computer Science
+- Entrance Scholarship
+- Dean's List (2019)
+- GPA: 3.6/4.0
 
 
 ## Miscellaneous
-- Udacity Machine Learning (2019)
-- Winner
-- Basketball player
-- Competitive gaming
-- Volunteer, ABC Food bank: Ut enim ad minim veniam
+- Sports (Basketball, Badminton and Table Tennis)
+- Hiking
+- Gardening
