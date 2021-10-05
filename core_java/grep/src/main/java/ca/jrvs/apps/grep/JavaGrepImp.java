@@ -1,18 +1,22 @@
 package ca.jrvs.apps.grep;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.FileReader;
 import java.io.OutputStreamWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 
 public class JavaGrepImp implements JavaGrep {
 
@@ -21,6 +25,7 @@ public class JavaGrepImp implements JavaGrep {
   private String regex;
   private String rootPath;
   private String outFile;
+  private List<File> files;
 
   @Override
   public String getRegex() {
@@ -39,7 +44,6 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void setRootPath(String rootPath) {
-    //check if has directory format
     this.rootPath = rootPath;
   }
 
@@ -50,76 +54,90 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void setOutFile(String outFile) {
-    //check if has file format
     this.outFile = outFile;
   }
 
   @Override
   public void process() throws IOException {
-
     List<String> matchedLines = new ArrayList<>();
-    String rootDir = getRootPath();
+    List<File> listFiles = listFiles(this.rootPath);
 
-    for (File file : listFiles(rootDir)) {
-      readLines(file).filter(line -> containsPattern(line))
-          .forEach(line -> matchedLines.add(line));
+    for (File file : listFiles) {
+      List<String> readLines = readLines(file).collect(Collectors.toList());
+
+      for (String line : readLines) {
+        if (containsPattern(line)) {
+          matchedLines.add(line);
+        }
+      }
     }
-
     writeToFile(matchedLines);
   }
 
-  @Override
-  public List<File> listFiles(String rootDir) throws IOException {
-    List<File> listFiles = new ArrayList<>();
-    File root = new File(rootDir);
-
-    if (root.listFiles() != null) {
-      listFilesRecursively(root, listFiles);
+  private void listFilesRecursive(File dir) {
+    if (!dir.exists()) {
+      return;
     }
-    return listFiles;
-  }
-
-  private void listFilesRecursively(File root, List<File> listFiles) {
-    File[] files = root.listFiles();
-
-    for (File file : files) {
-      if (file.isDirectory()) {
-        listFilesRecursively(file, listFiles);
-      } else {
-        listFiles.add(file);
+    if (dir.isDirectory()) {
+      for (File file : Objects.requireNonNull(dir.listFiles())) {
+        listFilesRecursive(file);
       }
+    } else {
+      this.files.add(dir);
     }
   }
 
+  @Override
+  public List<File> listFiles(String rootDir) {
+    this.files = new ArrayList<>();
+    File dir = new File(rootDir);
+
+    listFilesRecursive(dir);
+    return this.files;
+  }
 
   @Override
-  public Stream<String> readLines(File inputFile) throws IOException {
-    return Files.lines(Paths.get(inputFile.getAbsolutePath()));
+  public Stream<String> readLines(File inputFile) {
+    List<String> lines = new ArrayList<>();
+
+    try {
+      String line;
+      BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+      while ((line = reader.readLine()) != null) {
+        lines.add(inputFile + ":" + line);
+      }
+      reader.close();
+    } catch (FileNotFoundException ex) {
+      this.logger.error(ex.getMessage(), ex);
+    } catch (IOException ex) {
+      this.logger.error(ex.getMessage(), ex);
+    }
+
+    return lines.stream();
   }
 
   @Override
   public boolean containsPattern(String line) {
-    return line.matches(getRegex());
+    return line.matches(this.regex);
   }
 
   @Override
   public void writeToFile(List<String> lines) throws IOException {
-    FileOutputStream fileOutputStream = new FileOutputStream(getOutFile());
-    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(fileOutputStream);
-    BufferedWriter writer = new BufferedWriter(outputStreamWriter);
+    BufferedWriter bufferedWriter = new BufferedWriter(
+        new OutputStreamWriter(new FileOutputStream(this.outFile)));
 
     for (String line : lines) {
-      writer.append(line);
-      writer.newLine();
+      bufferedWriter.write(line);
+      bufferedWriter.newLine();
     }
-
-    writer.flush();
+    bufferedWriter.close();
   }
 
   public static void main(String[] args) {
     if (args.length != 3) {
-      throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
+      throw new IllegalArgumentException("");
     }
+
     //Use default logger config
     BasicConfigurator.configure();
 
@@ -130,8 +148,8 @@ public class JavaGrepImp implements JavaGrep {
 
     try {
       javaGrepImp.process();
-    } catch (Exception e) {
-      javaGrepImp.logger.error("Error on processing/writing to file", e);
+    } catch (IOException ex) {
+      javaGrepImp.logger.error(ex.getMessage(), ex);
     }
   }
 }

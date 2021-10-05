@@ -5,47 +5,46 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Stream;
 
-/**
- * An interface to implement Grep functionality in Java.
- */
 public interface JavaGrep {
 
   /**
-   * Top level search workflow.
+   * Top level search outflow
    *
-   * @throws IOException if file read failed
+   * @throws IOException
    */
   void process() throws IOException;
 
   /**
-   * Traverse a given directory and return all files.
+   * Traverse a given directory and return all files
    *
    * @param rootDir input directory
    * @return files under the rootDir
    */
-  List<File> listFiles(String rootDir) throws IOException;
+  List<File> listFiles(String rootDir);
 
   /**
-   * Read a file and return all the lines.
-   * ! FileReader, BufferedReader, Character encoding!
+   * Read a file and return all lines
+   * <p>
+   * Explain FileReader, BufferReader, and character encoding
    *
    * @param inputFile file to be read
    * @return lines
-   * @throws IllegalArgumentException if a given input file is not a file
+   * @throws IllegalArgumentException if inputFile is not a valid file
    */
-  Stream<String> readLines(File inputFile) throws IllegalArgumentException, IOException;
+  Stream<String> readLines(File inputFile);
 
   /**
-   * check if a line contains the regex pattern passed by user.
+   * check if line contains regex pattern
    *
-   * @param line input string (line)
-   * @return true if there is a match
+   * @param line input string
+   * @return true if match exists
    */
   boolean containsPattern(String line);
 
   /**
-   * Write lines to a file.
-   * ! FileOutputStream, OutputStreamWriter, BufferedWriter!
+   * Write lines to a file
+   * <p>
+   * Explore: FileOutputStream, OutputStreamWriter, and BufferWriter
    *
    * @param lines matched lines
    * @throws IOException if write failed
