@@ -1,5 +1,5 @@
 # Introduction
-The Java Grep app is an java implementation that mimics the features and functionalities of the native Linux grep command for string pattern searching via regular expressions. The app employs industry standard build environment using Maven the build and manage dependencies in IntelliJ, SLF4J for logging, and meticulously unit tested with JUnit 4. Functionally, this app takes advantage of many Java 8 features like Lambda and Stream API. For deployment the entire project is containerized via Docker and remotely pushed to Dockerhub. 
+The Java Grep app is an java implementation that mimics the features and functionalities of the native Linux grep command for string pattern searching via regular expressions. The app employs industry standard build environment using Maven to build and manage dependencies in IntelliJ, SLF4J for logging, and meticulously unit tested with JUnit 4. Functionally, this app takes advantage of many Java 8 features like Lambda and Stream API. For deployment the entire project is containerized via Docker and remotely pushed to Dockerhub. 
 
 # Quick Start
 ### Maven Build
