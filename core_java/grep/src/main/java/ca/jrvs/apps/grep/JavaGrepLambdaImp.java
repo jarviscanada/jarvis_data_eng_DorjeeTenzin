@@ -39,8 +39,8 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
           .filter(Files::isRegularFile)
           .forEach(path -> files.add(path.toFile()));
 
-    } catch (IOException ex) {
-      logger.error(ex.getMessage(), ex);
+    } catch (IOException e) {
+      logger.error("Error: Unable to open file, IO issue related to the file", e);
     }
     return files;
   }
@@ -55,15 +55,15 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
           .filter(Objects::nonNull)
           .map(line -> inputFile + ":" + line);
 
-    } catch (IOException ex) {
-      this.logger.error(ex.getMessage(), ex);
+    } catch (IOException e) {
+      this.logger.error("Error: Unable to read file, IO issue related to this file", e);
     }
     return null;
   }
 
   public static void main(String[] args) {
     if (args.length != 3) {
-      throw new IllegalArgumentException("");
+      throw new IllegalArgumentException("Incorrect number of arguments: Usage: [regex] [rootPath] [Outfile]");
     }
 
     //Use default logger config
@@ -76,8 +76,8 @@ public class JavaGrepLambdaImp extends JavaGrepImp {
 
     try {
       jGLI.process();
-    } catch (IOException ex) {
-      jGLI.logger.error(ex.getMessage(), ex);
+    } catch (Exception e) {
+      jGLI.logger.error("Error: Unable to process", e);
     }
   }
 }

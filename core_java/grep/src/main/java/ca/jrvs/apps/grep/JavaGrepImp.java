@@ -107,10 +107,10 @@ public class JavaGrepImp implements JavaGrep {
         lines.add(inputFile + ":" + line);
       }
       reader.close();
-    } catch (FileNotFoundException ex) {
-      this.logger.error(ex.getMessage(), ex);
-    } catch (IOException ex) {
-      this.logger.error(ex.getMessage(), ex);
+    } catch (FileNotFoundException e) {
+      this.logger.error("Error: File not found", e);
+    } catch (Exception e) {
+      this.logger.error("Some error! Try again ", e);
     }
 
     return lines.stream();
@@ -135,7 +135,7 @@ public class JavaGrepImp implements JavaGrep {
 
   public static void main(String[] args) {
     if (args.length != 3) {
-      throw new IllegalArgumentException("");
+      throw new IllegalArgumentException("Requires exactly 3 arguments");
     }
 
     //Use default logger config
@@ -148,8 +148,8 @@ public class JavaGrepImp implements JavaGrep {
 
     try {
       javaGrepImp.process();
-    } catch (IOException ex) {
-      javaGrepImp.logger.error(ex.getMessage(), ex);
+    } catch (IOException e) {
+      javaGrepImp.logger.error("Error: Unable to process", e);
     }
   }
 }
