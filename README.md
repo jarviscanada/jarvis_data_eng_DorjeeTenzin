@@ -1,6 +1,6 @@
 # Dorjee Tenzin . Jarvis Consulting
 
-I have a Bachelor of Computing from the University of Guelph, where I majored in Computer Science. Throughout my education, I gained a solid fundamental understanding of computer science concepts and paradigms which allow me to be adaptable in the face of new technologies. I’m great at problem-solving and enjoy writing clean and robust code more than ever, and I love learning new concepts, technologies, and methodologies and applying that knowledge and myself. This passion has led me to explore and familiarize myself with much modern application and web development frameworks. 
+I have a Bachelor of Computing from the University of Guelph, where I majored in Computer Science. Throughout my education, I gained a solid fundamental understanding of computer science concepts and paradigms which allow me to be adaptable in the face of new technologies. I’m great at problem-solving and enjoy writing clean and robust code more than ever, and I love learning new concepts, technologies, and methodologies and applying that knowledge and myself. This passion has led me to explore and familiarize myself with many modern application and web development frameworks. 
 
 I like to keep a healthy balance of passion and pragmatism in terms of mentality and outlook on workplace culture. While I enjoy learning new things and writing beautiful, elegant code, I am mindful of time and business constraints within a larger collaborative environment. I have many experiences working and collaborating with a team to complete a project. During University, I was a Teaching Assistance (TA) for The Analysis and Design of Computer Algorithms course in which I had to mentor Second Year students in collaboration with other TA’s and the professor. At my current occupation at Jarvis Consulting, I work in a team to complete projects using Agile and Scrum methodologies. My strong academic background and experience working and collaborating within a team will allow me to make meaningful contributions and be a great addition to your team.
 
@@ -22,8 +22,8 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_DorjeeTenz
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_DorjeeTenzin//tree/master/core_java)]:
       
   - Twitter CRUD App: In Progress...
-  - JDBC App: In Progress...
-  - Grep App: In Progress...
+  - JDBC App: Programmed an application that leverages the JDBC API to perform CRUD operations on a PostgreSQL database provisioned by Docker. App connectivity was implemented using the Data Access Object (DAO) design pattern.
+  - GREP App: Implemented the Linux Grep command utility for string pattern searching via regular expressions in Java. Utilized various Java 8+ specific features like lambdas, Stream API in IntelliJ. The app employs industry-standard build environment using Maven to build and manage dependencies, SLF4J for logging, and unit tested with JUnit 4.
 
 
 ## Highlighted Projects
