@@ -85,7 +85,7 @@ public class TwitterDao implements CrdDao<Tweet, String> {
       throw new RuntimeException("ERROR: Failed to convert entity to String", e);
     }
 
-    //Desec JSON string to Tweet object
+    //Deserializa JSON string to Tweet object
     try {
       tweet = JsonUtil.toObjectFromJson(jsonStr, Tweet.class);
     } catch (IOException e) {

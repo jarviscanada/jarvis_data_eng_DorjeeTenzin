@@ -19,10 +19,10 @@ public class TwitterDaoIntTest {
 
   @Before
   public void setup() {
-    String consumerKey = System.getenv("consumerKey");
-    String consumerSecret = System.getenv("consumerSecret");
-    String accessToken = System.getenv("accessToken");
-    String tokenSecret = System.getenv("tokenSecret");
+    String consumerKey = System.getenv("CONSUMER_KEY");
+    String consumerSecret = System.getenv("CONSUMER_SECRET");
+    String accessToken = System.getenv("ACCESS_TOKEN");
+    String tokenSecret = System.getenv("TOKEN_SECRET");
 
     System.out.println(consumerKey + "|" + consumerSecret + "|" + accessToken + "|" + tokenSecret);
 
