@@ -38,7 +38,7 @@
     },
     {
       "description": [
-        "Twitter CRUD App: In Progress...",
+        "Twitter CRUD App: Allows Twitter users to interact with the REST Twitter API to make CRUD operations through the command line. It follows an MVC design pattern and various logic layers including a service, DAO and, DTO layer. This app utilizes Maven and Spring for dependency management and is deployed using Docker. In addition, it's thoroughly tested with integration testing as well as unit testing with Junit and Mockito.",
         "JDBC App: Programmed an application that leverages the JDBC API to perform CRUD operations on a PostgreSQL database provisioned by Docker. App connectivity was implemented using the Data Access Object (DAO) design pattern.",
         "GREP App: Implemented the Linux Grep command utility for string pattern searching via regular expressions in Java. Utilized various Java 8+ specific features like lambdas, Stream API in IntelliJ. The app employs industry-standard build environment using Maven to build and manage dependencies, SLF4J for logging, and unit tested with JUnit 4."
       ],

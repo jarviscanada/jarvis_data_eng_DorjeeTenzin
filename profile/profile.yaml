@@ -45,7 +45,7 @@ jarvis_projects:
     git_url: "/core_java"
     description:
       #Keywords: Java 8, REST API, OAuth, Design patterns (e.g. DAO, MVC), JUnit, Mockito, Docker
-      - "Twitter CRUD App: In Progress..."
+      - "Twitter CRUD App: Allows Twitter users to interact with the REST Twitter API to make CRUD operations through the command line. It follows an MVC design pattern and various logic layers including a service, DAO and, DTO layer. This app utilizes Maven and Spring for dependency management and is deployed using Docker. In addition, it's thoroughly tested with integration testing as well as unit testing with Junit and Mockito."
       # Keywords: Java 8, JDBC, RDBMS, SQL, CRUD,DAO
       - "JDBC App: Programmed an application that leverages the JDBC API to perform CRUD operations on a PostgreSQL database provisioned by Docker. App connectivity was implemented using the Data Access Object (DAO) design pattern."
       # Keywords: Java 8, Lambda, Stream API, IntelliJ
